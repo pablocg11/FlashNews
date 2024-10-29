@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D655778F2CD1447E0058D2A8 /* FlashNews */ = {
+		D65577B12CD1448E0058D2A8 /* FlashNews */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = FlashNews;
 			sourceTree = "<group>";
@@ -32,7 +32,7 @@
 		D65577842CD1447E0058D2A8 = {
 			isa = PBXGroup;
 			children = (
-				D655778F2CD1447E0058D2A8 /* FlashNews */,
+				D65577B12CD1448E0058D2A8 /* FlashNews */,
 				D655778E2CD1447E0058D2A8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,7 +61,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				D655778F2CD1447E0058D2A8 /* FlashNews */,
+				D65577B12CD1448E0058D2A8 /* FlashNews */,
 			);
 			name = FlashNews;
 			packageProductDependencies = (
