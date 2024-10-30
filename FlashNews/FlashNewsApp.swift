@@ -1,9 +1,3 @@
-//
-//  FlashNewsApp.swift
-//  FlashNews
-//
-//  Created by Pablo Castro on 29/10/24.
-//
 
 import SwiftUI
 
@@ -11,7 +5,7 @@ import SwiftUI
 struct FlashNewsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainContentView(newsListView: NewsListViewFactory().createView())
         }
     }
 }

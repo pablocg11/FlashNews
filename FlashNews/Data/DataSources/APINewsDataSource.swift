@@ -14,38 +14,41 @@ class APINewsDataSource: APINewsDataSourceProtocol {
     private let baseUrl = "https://newsapi.org/v2/top-headlines"
     private var currentPage: Int = 1
         
-    init(httpClient: HTTPClientProtocol) {
+    init(httpClient: HTTPClientProtocol, APIKeyManager: APIKeyManager) {
         self.httpClient = httpClient
+        self.APIKeyManager = APIKeyManager
     }
     
     func getNews() async -> Result<[ArticleDTO], HTTPClientError> {
         guard let apiKey = APIKeyManager.getAPIKey() else { return .failure(.clientError)}
         
         let params: [String: Any] = [
-            "apiKey":   apiKey,
-            "page"  :   currentPage
+            "apiKey"    :   apiKey,
+            "country"   :   "us",
+            "page"      :   currentPage
         ]
         
         let request = HTTPRequest(baseURL: baseUrl, method: .get, params: params)
-        
         let result = await httpClient.makeRequest(request)
-        guard case .success(let data) = result else {
-            return .failure(handleError(error: result.failureValue as? HTTPClientError))
-        }
         
-        guard let newsResponse = try? JSONDecoder().decode(NewsReponseDTO.self, from: data) else {
-            return .failure(.parsingError)
+        switch result {
+        case .success(let data):
+            do {
+                let newsResponse = try JSONDecoder().decode(NewsReponseDTO.self, from: data)
+                return .success(newsResponse.articles)
+            } catch {
+                print("Parsing error: \(error.localizedDescription)")
+                return .failure(.parsingError)
+            }
+            
+        case .failure(let error):
+            return .failure(handleError(error: error))
         }
-        
-        if newsResponse.articles.isEmpty {
-            return .failure(.badURL)
-        }
-        
-        return .success(newsResponse.articles)
     }
     
-    func getMoreNews() -> Result<[ArticleDTO], HTTPClientError> {
-        
+    func getMoreNews() async -> Result<[ArticleDTO], HTTPClientError> {
+        currentPage += 1
+        return await getNews()
     }
     
     
