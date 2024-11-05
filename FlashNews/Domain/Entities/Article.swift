@@ -29,7 +29,7 @@ struct Article: Equatable, Hashable {
         self.description = dto.description
         self.url = dto.url
         self.urlToImage = dto.urlToImage
-        self.publishedAt = dto.publishedAt
+        self.publishedAt = dto.publishedAt.timeSincePublication()!
         self.content = dto.content
     }
 }

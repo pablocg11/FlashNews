@@ -2,8 +2,8 @@
 import Foundation
 
 protocol NewsRepositoryType {
-    func getAllNews() async -> Result<[Article], DomainError>
-    func getMoreNews() async -> Result<[Article], DomainError>
+    func getAllNews(category: Categories) async -> Result<[Article], DomainError>
+    func getMoreNews(category: Categories) async -> Result<[Article], DomainError>
 }
 
 class NewsRepository: NewsRepositoryType {
@@ -16,8 +16,8 @@ class NewsRepository: NewsRepositoryType {
         self.errorMapper = errorMapper
     }
     
-    func getAllNews() async -> Result<[Article], DomainError> {
-        let result = await apiDataSource.getNews()
+    func getAllNews(category: Categories) async -> Result<[Article], DomainError> {
+        let result = await apiDataSource.getNews(category: category)
         
         switch result {
         case .success(let articles):
@@ -28,8 +28,8 @@ class NewsRepository: NewsRepositoryType {
         }
     }
     
-    func getMoreNews() async -> Result<[Article], DomainError> {
-        let result = await apiDataSource.getMoreNews()
+    func getMoreNews(category: Categories) async -> Result<[Article], DomainError> {
+        let result = await apiDataSource.getMoreNews(category: category)
                 
         switch result {
         case .success(let articles):
@@ -43,7 +43,7 @@ class NewsRepository: NewsRepositoryType {
     func convertToArticles(from dtos: [ArticleDTO]) -> [Article] {
         return dtos.compactMap { dto -> Article? in
             guard dto.title != "[Removed]" else {
-                return nil 
+                return nil
             }
             return Article(dto: dto)
         }

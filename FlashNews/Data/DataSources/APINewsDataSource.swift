@@ -1,10 +1,9 @@
 
 import Foundation
-import Combine
 
 protocol APINewsDataSourceProtocol {
-    func getNews() async -> Result<[ArticleDTO], HTTPClientError>
-    func getMoreNews() async -> Result<[ArticleDTO], HTTPClientError>
+    func getNews(category: Categories) async -> Result<[ArticleDTO], HTTPClientError>
+    func getMoreNews(category: Categories) async -> Result<[ArticleDTO], HTTPClientError>
 }
 
 class APINewsDataSource: APINewsDataSourceProtocol {
@@ -19,13 +18,14 @@ class APINewsDataSource: APINewsDataSourceProtocol {
         self.APIKeyManager = APIKeyManager
     }
     
-    func getNews() async -> Result<[ArticleDTO], HTTPClientError> {
+    func getNews(category: Categories) async -> Result<[ArticleDTO], HTTPClientError> {
         guard let apiKey = APIKeyManager.getAPIKey() else { return .failure(.clientError)}
         
         let params: [String: Any] = [
             "apiKey"    :   apiKey,
             "country"   :   "us",
-            "page"      :   currentPage
+            "page"      :   currentPage,
+            "category"  :   category
         ]
         
         let request = HTTPRequest(baseURL: baseUrl, method: .get, params: params)
@@ -46,9 +46,9 @@ class APINewsDataSource: APINewsDataSourceProtocol {
         }
     }
     
-    func getMoreNews() async -> Result<[ArticleDTO], HTTPClientError> {
+    func getMoreNews(category: Categories) async -> Result<[ArticleDTO], HTTPClientError> {
         currentPage += 1
-        return await getNews()
+        return await getNews(category: category)
     }
     
     

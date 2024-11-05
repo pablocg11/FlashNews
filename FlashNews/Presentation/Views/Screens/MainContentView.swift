@@ -2,7 +2,6 @@
 import SwiftUI
 
 struct MainContentView: View {
-    
     private let newsListView: NewsListView
     
     init(newsListView: NewsListView) {

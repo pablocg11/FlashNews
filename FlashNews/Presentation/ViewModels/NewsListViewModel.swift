@@ -17,30 +17,30 @@ class NewsListViewModel: ObservableObject {
     
     @Published var news: [Article] = []
     @Published var isLoading: Bool = false
+    @Published var isSearching: Bool = false
     @Published var errorMessage: String?
     
     func onAppear() {
-        fetchNews()
+        fetchNews(category: .general)
     }
     
-    private func fetchNews() {
+    func fetchNews(category: Categories) {
         isLoading = true
         
         Task {
-            let result = await self.getNewsUseCase.execute()
+            let result = await self.getNewsUseCase.execute(category: category)
             await handleResult(result)
         }
     }
         
-    func fetchMoreNews() {
+    func fetchMoreNews(category: Categories) {
         isLoading = true
         
         Task {
-            let result = await self.getMoreNewsUseCase.execute()
+            let result = await self.getMoreNewsUseCase.execute(category: category)
             await handleResult(result, isFetchMore: true)
         }
     }
-    
     
     private func handleResult(_ result: Result<[Article], DomainError>, isFetchMore: Bool = false) async {
         switch result {

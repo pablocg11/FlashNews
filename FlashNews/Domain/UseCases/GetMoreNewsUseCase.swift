@@ -2,7 +2,7 @@
 import Foundation
 
 protocol GetMoreNewsUseCaseType {
-    func execute() async -> Result<[Article], DomainError>
+    func execute(category: Categories) async -> Result<[Article], DomainError>
 }
 
 class GetMoreNewsUseCase: GetMoreNewsUseCaseType {
@@ -13,7 +13,7 @@ class GetMoreNewsUseCase: GetMoreNewsUseCaseType {
         self.repository = repository
     }
     
-    func execute() async -> Result<[Article], DomainError> {
-        return await repository.getMoreNews()
+    func execute(category: Categories) async -> Result<[Article], DomainError> {
+        return await repository.getMoreNews(category: category)
     }
 }
