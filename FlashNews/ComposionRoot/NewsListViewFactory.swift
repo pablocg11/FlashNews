@@ -3,8 +3,8 @@ import Foundation
 
 class NewsListViewFactory {
     
-    func createView() -> NewsListView {
-        return NewsListView(vm: createNewsListViewViewModel())
+    func createView() -> MainContentView {
+        return MainContentView(vm: createNewsListViewViewModel())
     }
     
     private func createNewsListViewViewModel() -> NewsListViewModel {

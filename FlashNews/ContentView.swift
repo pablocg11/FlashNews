@@ -2,17 +2,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    var newsListViewFactory: NewsListViewFactory
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        newsListViewFactory.createView()
     }
 }
 
-#Preview {
-    ContentView()
-}

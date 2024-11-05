@@ -45,6 +45,10 @@ class NewsRepository: NewsRepositoryType {
             guard dto.title != "[Removed]" else {
                 return nil
             }
+            
+            guard dto.urlToImage != nil else {
+                return nil
+            }
             return Article(dto: dto)
         }
     }

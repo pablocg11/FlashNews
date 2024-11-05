@@ -9,23 +9,20 @@ struct NewsItemView: View {
     }
     
     var body: some View {
-        HStack(spacing: 10) {
+        ZStack {
             if let urlToImage = article.urlToImage, let url = URL(string: urlToImage) {
-                AsyncImage(url: url) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 80, height: 80)
-                        .clipped()
-                        .cornerRadius(10)
-                } placeholder: {
+            AsyncImage(url: url) { image in
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .cornerRadius(10)
+                    .opacity(0.5)
+            } placeholder: {
                     ProgressView()
-                        .frame(width: 80)
                 }
             } else {
                 Rectangle()
-                    .fill(Color.gray.opacity(0.2))
-                    .frame(width: 80, height: 80)
+                    .fill(Color.gray.opacity(0.3))
                     .cornerRadius(10)
             }
             
@@ -35,6 +32,7 @@ struct NewsItemView: View {
                     .fontWeight(.semibold)
                     .lineLimit(2)
                     .truncationMode(.tail)
+                    .frame(maxWidth: 170)
                 
                 HStack {
                     Image(systemName: "clock.fill")
@@ -44,21 +42,14 @@ struct NewsItemView: View {
                     
                     Text("\(article.publishedAt)")
                         .font(.caption)
-                        .fontWeight(.light)
+                        .fontWeight(.semibold)
                 }
-                .foregroundColor(.gray)
-
-                Text(article.description ?? "Description not available")
-                    .font(.caption)
-                    .fontWeight(.light)
-                    .lineLimit(3)
-                    .truncationMode(.tail)
             }
-            .padding(.leading, 10)
+            .padding()
             .multilineTextAlignment(.leading)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+            .foregroundColor(.primary)
         }
-        .padding()
+        .frame(width: 180, height: 100)
         .background(Color.white)
         .cornerRadius(10)
     }

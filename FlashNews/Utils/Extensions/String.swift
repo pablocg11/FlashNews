@@ -15,16 +15,16 @@ extension String {
         let secondsInDay: TimeInterval = 86400
         
         if timeInterval < secondsInMinute {
-            return "Hace \(Int(timeInterval)) segundos"
+            return "\(Int(timeInterval)) seconds ago"
         } else if timeInterval < secondsInHour {
             let minutes = Int(timeInterval / secondsInMinute)
-            return "Hace \(minutes) minuto\(minutes > 1 ? "s" : "")"
+            return "\(minutes) minute\(minutes > 1 ? "s" : "") ago"
         } else if timeInterval < secondsInDay {
             let hours = Int(timeInterval / secondsInHour)
-            return "Hace \(hours) hora\(hours > 1 ? "s" : "")"
+            return "\(hours) hours\(hours > 1 ? "s" : "") ago"
         } else {
             let days = Int(timeInterval / secondsInDay)
-            return "Hace \(days) día\(days > 1 ? "s" : "")"
+            return "\(days) day\(days > 1 ? "s" : "") ago"
         }
     }
 }

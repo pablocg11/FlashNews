@@ -10,7 +10,7 @@ struct LoadingView: View {
                 ProgressView()
                     .progressViewStyle(.circular)
                     .scaleEffect(3.0, anchor: .center)
-                    .frame(width: 80, height: 80)
+                    .frame(width: 40, height: 40)
                     .clipShape(Circle())
                     .tint(.gray.opacity(0.5))
                     .position(x: geometryReader.size.width/2, y: geometryReader.size.height/2)

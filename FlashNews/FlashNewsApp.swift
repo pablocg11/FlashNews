@@ -5,7 +5,7 @@ import SwiftUI
 struct FlashNewsApp: App {
     var body: some Scene {
         WindowGroup {
-            MainContentView(newsListView: NewsListViewFactory().createView())
+            ContentView(newsListViewFactory: NewsListViewFactory())
         }
     }
 }
