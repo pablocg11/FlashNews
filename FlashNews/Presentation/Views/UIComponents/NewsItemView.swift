@@ -11,13 +11,20 @@ struct NewsItemView: View {
     var body: some View {
         ZStack {
             if let urlToImage = article.urlToImage, let url = URL(string: urlToImage) {
-            AsyncImage(url: url) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .cornerRadius(10)
-                    .opacity(0.5)
-            } placeholder: {
+                AsyncImage(url: url) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .cornerRadius(10)
+                        .opacity(0.7)
+                        .overlay(
+                            LinearGradient(
+                                gradient: Gradient(colors: [Color.black.opacity(0), Color.black]),
+                                startPoint: .top,
+                                endPoint: .bottom
+                            )
+                        )
+                } placeholder: {
                     ProgressView()
                 }
             } else {
@@ -25,31 +32,26 @@ struct NewsItemView: View {
                     .fill(Color.gray.opacity(0.3))
                     .cornerRadius(10)
             }
-            
+                        
             VStack(alignment: .leading, spacing: 5) {
+                Spacer()
+                
                 Text(article.title)
-                    .font(.subheadline)
+                    .font(.caption)
                     .fontWeight(.semibold)
                     .lineLimit(2)
                     .truncationMode(.tail)
-                    .frame(maxWidth: 170)
                 
-                HStack {
-                    Image(systemName: "clock.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: 10,maxHeight: 10)
-                    
-                    Text("\(article.publishedAt)")
-                        .font(.caption)
-                        .fontWeight(.semibold)
-                }
+                Text("\(article.publishedAt)")
+                    .font(.caption2)
+                    .fontWeight(.light)
             }
             .padding()
+            .frame(width: 175, height: 135)
             .multilineTextAlignment(.leading)
-            .foregroundColor(.primary)
+            .foregroundColor(.white)
         }
-        .frame(width: 180, height: 100)
+        .frame(width: 180, height: 140)
         .background(Color.white)
         .cornerRadius(10)
     }

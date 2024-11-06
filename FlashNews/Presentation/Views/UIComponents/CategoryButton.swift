@@ -15,6 +15,7 @@ struct CategoryButton: View {
         }) {
             Text(category)
                 .font(.caption)
+                .fontWeight(isSelected ? .bold : .regular)
                 .padding(10)
         }
         .background(isSelected ? Color.blue : Color.gray.opacity(0.5))

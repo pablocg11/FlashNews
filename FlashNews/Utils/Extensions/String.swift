@@ -21,7 +21,7 @@ extension String {
             return "\(minutes) minute\(minutes > 1 ? "s" : "") ago"
         } else if timeInterval < secondsInDay {
             let hours = Int(timeInterval / secondsInHour)
-            return "\(hours) hours\(hours > 1 ? "s" : "") ago"
+            return "\(hours) hour\(hours > 1 ? "s" : "") ago"
         } else {
             let days = Int(timeInterval / secondsInDay)
             return "\(days) day\(days > 1 ? "s" : "") ago"

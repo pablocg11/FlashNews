@@ -17,7 +17,6 @@ class NewsListViewModel: ObservableObject {
     
     @Published var news: [Article] = []
     @Published var isLoading: Bool = false
-    @Published var isSearching: Bool = false
     @Published var errorMessage: String?
     
     func onAppear() {

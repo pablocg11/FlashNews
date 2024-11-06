@@ -2,8 +2,7 @@
 import SwiftUI
 
 struct EmptyNewsListView: View {
-    
-    @Binding var selectedCategory: Categories
+    @State var selectedCategory: Categories
     
     var body: some View {
         VStack {

@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct DetailArticleView: View {
-    
     private let article: Article
     @State private var isSharingArticle = false
     
@@ -11,8 +10,7 @@ struct DetailArticleView: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                
+            VStack(alignment: .leading, spacing: 10) {
                 ZStack(alignment: .bottomTrailing) {
                     if let urlToImage = article.urlToImage, let url = URL(string: urlToImage) {
                         AsyncImage(url: url) { image in
@@ -43,41 +41,44 @@ struct DetailArticleView: View {
                 
                 Text(article.title)
                     .font(.title2)
-                    .fontWeight(.bold)
+                    .fontWeight(.semibold)
                     .foregroundColor(.primary)
                     .padding(.horizontal)
                 
                 HStack(spacing: 5) {
                     Image(systemName: "clock.fill")
-                        .foregroundColor(.gray)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: 10, maxHeight: 10)
+                       
                     Text("\(article.publishedAt)")
-                        .font(.footnote)
-                        .fontWeight(.medium)
-                        .foregroundColor(.gray)
+                        .font(.caption)
+                        .fontWeight(.light)
                 }
+                .foregroundColor(.gray)
                 .padding(.horizontal)
+                .padding(.bottom)
                 
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Description")
-                        .font(.headline)
+                        .font(.callout)
                         .foregroundColor(.primary)
                     
                     if let description = article.description {
                         Text(description)
-                            .font(.body)
-                            .foregroundColor(.secondary)
+                            .font(.callout)
                             .padding()
                             .background(Color(UIColor.systemGray6))
                             .cornerRadius(10)
                     } else {
                         Text("Description not available.")
-                            .font(.body)
-                            .foregroundColor(.gray)
+                            .font(.caption)
                             .padding()
                             .background(Color(UIColor.systemGray6))
                             .cornerRadius(10)
                     }
                 }
+                .foregroundColor(.gray)
                 .padding(.horizontal)
                 
                 if let url = URL(string: article.url) {
@@ -114,8 +115,8 @@ struct DetailArticleView: View {
                 }
             }
         }
-        .background(LinearGradient(gradient: Gradient(colors: [Color.white, Color(UIColor.systemGray6)]), startPoint: .top, endPoint: .bottom)
-        .ignoresSafeArea())
+        .scrollIndicators(.hidden)
+        .background(LinearGradient(gradient: Gradient(colors: [Color.white, Color(UIColor.systemGray6)]), startPoint: .top, endPoint: .bottom))
         .sheet(isPresented: $isSharingArticle) {
             ShareSheet(activityItems: [article.url])
         }

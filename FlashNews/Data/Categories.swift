@@ -3,7 +3,7 @@ import Foundation
 
 enum Categories: String, CaseIterable {
     case general = "General"
-    case bussiness = "Bussiness"
+    case business = "Business"
     case entertainment = "Entertainment"
     case health = "Health"
     case science = "Science"

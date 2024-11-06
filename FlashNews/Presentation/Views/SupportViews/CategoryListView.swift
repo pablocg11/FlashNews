@@ -2,7 +2,6 @@
 import SwiftUI
 
 struct CategoryListView: View {
-    
     @Binding var selectedCategory: Categories
     
     var body: some View {
