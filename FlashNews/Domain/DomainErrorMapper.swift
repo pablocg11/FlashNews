@@ -7,20 +7,24 @@ class DomainErrorMapper {
         }
         
         switch error {
-        case .tooManyRequest:
-            return .tooManyRequest
-        case .parsingError:
-            return .generic("Failed to parse the response data.")
-        case .badURL:
-            return .generic("The requested URL is invalid.")
-        case .clientError:
-            return .generic("A client error occurred. Please try again.")
-        case .serverError:
-            return .generic("A server error occurred. Please try later.")
         case .networkError:
-            return .generic("A network issue occurred. Check your connection.")
-        default:
-            return .generic("An unexpected error occurred.")
+            return .networkError
+        case .timeout:
+            return .timeout
+        case .serverError:
+            return .serverError
+        case .clientError:
+            return .clientError
+        case .parsingError:
+            return .parsingError
+        case .invalidResponse:
+            return .invalidResponse
+        case .badURL:
+            return .generic("Bad URL format.")
+        case .tooManyRequest:
+            return .generic("Too many requests. Please try again later.")
+        case .generic:
+            return .generic("An unknown error occurred.")
         }
     }
 }

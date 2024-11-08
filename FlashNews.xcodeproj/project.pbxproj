@@ -13,19 +13,68 @@
 		D6428B6B2CDA9B9400DC1CD2 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D6428B6A2CDA9B9400DC1CD2 /* FirebaseMessaging */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D63D554E2CDE3E6F00A02B2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D65577852CD1447E0058D2A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D655778C2CD1447E0058D2A8;
+			remoteInfo = FlashNews;
+		};
+		D6AFE1662CDC329F00BA3C58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D65577852CD1447E0058D2A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D655778C2CD1447E0058D2A8;
+			remoteInfo = FlashNews;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		D63D55482CDE3E6F00A02B2D /* FlashNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D655778D2CD1447E0058D2A8 /* FlashNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6AFE1622CDC329F00BA3C58 /* FlashNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D64C8A842CDD7A6300B5A34D /* Exceptions for "FlashNews" folder in "FlashNews" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D655778C2CD1447E0058D2A8 /* FlashNews */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		D63D55492CDE3E6F00A02B2D /* FlashNewsUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = FlashNewsUITests;
+			sourceTree = "<group>";
+		};
 		D65577B12CD1448E0058D2A8 /* FlashNews */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D64C8A842CDD7A6300B5A34D /* Exceptions for "FlashNews" folder in "FlashNews" target */,
+			);
 			path = FlashNews;
+			sourceTree = "<group>";
+		};
+		D6AFE1632CDC329F00BA3C58 /* FlashNewsTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = FlashNewsTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D63D55452CDE3E6F00A02B2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D655778A2CD1447E0058D2A8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -37,6 +86,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D6AFE15F2CDC329F00BA3C58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -44,6 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				D65577B12CD1448E0058D2A8 /* FlashNews */,
+				D6AFE1632CDC329F00BA3C58 /* FlashNewsTests */,
+				D63D55492CDE3E6F00A02B2D /* FlashNewsUITests */,
 				D655778E2CD1447E0058D2A8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				D655778D2CD1447E0058D2A8 /* FlashNews.app */,
+				D6AFE1622CDC329F00BA3C58 /* FlashNewsTests.xctest */,
+				D63D55482CDE3E6F00A02B2D /* FlashNewsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,6 +119,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D63D55472CDE3E6F00A02B2D /* FlashNewsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D63D55502CDE3E6F00A02B2D /* Build configuration list for PBXNativeTarget "FlashNewsUITests" */;
+			buildPhases = (
+				D63D55442CDE3E6F00A02B2D /* Sources */,
+				D63D55452CDE3E6F00A02B2D /* Frameworks */,
+				D63D55462CDE3E6F00A02B2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D63D554F2CDE3E6F00A02B2D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D63D55492CDE3E6F00A02B2D /* FlashNewsUITests */,
+			);
+			name = FlashNewsUITests;
+			packageProductDependencies = (
+			);
+			productName = FlashNewsUITests;
+			productReference = D63D55482CDE3E6F00A02B2D /* FlashNewsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		D655778C2CD1447E0058D2A8 /* FlashNews */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D655779C2CD144800058D2A8 /* Build configuration list for PBXNativeTarget "FlashNews" */;
@@ -85,6 +168,29 @@
 			productReference = D655778D2CD1447E0058D2A8 /* FlashNews.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D6AFE1612CDC329F00BA3C58 /* FlashNewsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6AFE1682CDC329F00BA3C58 /* Build configuration list for PBXNativeTarget "FlashNewsTests" */;
+			buildPhases = (
+				D6AFE15E2CDC329F00BA3C58 /* Sources */,
+				D6AFE15F2CDC329F00BA3C58 /* Frameworks */,
+				D6AFE1602CDC329F00BA3C58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6AFE1672CDC329F00BA3C58 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D6AFE1632CDC329F00BA3C58 /* FlashNewsTests */,
+			);
+			name = FlashNewsTests;
+			packageProductDependencies = (
+			);
+			productName = FlashNewsTests;
+			productReference = D6AFE1622CDC329F00BA3C58 /* FlashNewsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -95,8 +201,16 @@
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					D63D55472CDE3E6F00A02B2D = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = D655778C2CD1447E0058D2A8;
+					};
 					D655778C2CD1447E0058D2A8 = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					D6AFE1612CDC329F00BA3C58 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = D655778C2CD1447E0058D2A8;
 					};
 				};
 			};
@@ -118,12 +232,28 @@
 			projectRoot = "";
 			targets = (
 				D655778C2CD1447E0058D2A8 /* FlashNews */,
+				D6AFE1612CDC329F00BA3C58 /* FlashNewsTests */,
+				D63D55472CDE3E6F00A02B2D /* FlashNewsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D63D55462CDE3E6F00A02B2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D655778B2CD1447E0058D2A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6AFE1602CDC329F00BA3C58 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -133,7 +263,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D63D55442CDE3E6F00A02B2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D65577892CD1447E0058D2A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6AFE15E2CDC329F00BA3C58 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -142,7 +286,59 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D63D554F2CDE3E6F00A02B2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D655778C2CD1447E0058D2A8 /* FlashNews */;
+			targetProxy = D63D554E2CDE3E6F00A02B2D /* PBXContainerItemProxy */;
+		};
+		D6AFE1672CDC329F00BA3C58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D655778C2CD1447E0058D2A8 /* FlashNews */;
+			targetProxy = D6AFE1662CDC329F00BA3C58 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		D63D55512CDE3E6F00A02B2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8HB8QQ3X5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablocastro.apps.FlashNewsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FlashNews;
+			};
+			name = Debug;
+		};
+		D63D55522CDE3E6F00A02B2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8HB8QQ3X5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablocastro.apps.FlashNewsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FlashNews;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		D655779A2CD144800058D2A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -270,6 +466,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlashNews/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = FlashNews;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -278,7 +475,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = splas;
+				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreen;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -312,6 +509,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlashNews/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = FlashNews;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -320,7 +518,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = splas;
+				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreen;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -341,9 +539,59 @@
 			};
 			name = Release;
 		};
+		D6AFE1692CDC329F00BA3C58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8HB8QQ3X5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablocastro.apps.FlashNewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlashNews.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FlashNews";
+			};
+			name = Debug;
+		};
+		D6AFE16A2CDC329F00BA3C58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8HB8QQ3X5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablocastro.apps.FlashNewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlashNews.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FlashNews";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D63D55502CDE3E6F00A02B2D /* Build configuration list for PBXNativeTarget "FlashNewsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D63D55512CDE3E6F00A02B2D /* Debug */,
+				D63D55522CDE3E6F00A02B2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D65577882CD1447E0058D2A8 /* Build configuration list for PBXProject "FlashNews" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -358,6 +606,15 @@
 			buildConfigurations = (
 				D655779D2CD144800058D2A8 /* Debug */,
 				D655779E2CD144800058D2A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6AFE1682CDC329F00BA3C58 /* Build configuration list for PBXNativeTarget "FlashNewsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6AFE1692CDC329F00BA3C58 /* Debug */,
+				D6AFE16A2CDC329F00BA3C58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

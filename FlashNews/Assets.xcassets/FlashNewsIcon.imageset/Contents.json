@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "flashNewsIcon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "flashNewsIcon.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

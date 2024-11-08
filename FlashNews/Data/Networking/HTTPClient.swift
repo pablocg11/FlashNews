@@ -29,15 +29,29 @@ class HTTPClient: HTTPClientProtocol {
             let result = try await session.data(from: url)
             
             guard let response = result.1 as? HTTPURLResponse else {
-                return .failure(.responseError)
+                return .failure(.invalidResponse)
             }
             
-            guard response.statusCode == 200 else {
-                return .failure(errorsResolver.resolve(errorCode: response.statusCode))
+            switch response.statusCode {
+            case 200...299:
+                return .success(result.0)
+            case 400...499:
+                return .failure(.clientError)
+            case 500...599:
+                return .failure(.serverError)
+            default:
+                return .failure(.serverError)
             }
             
-            return .success(result.0)
-            
+        } catch let error as URLError {
+            switch error.code {
+            case .notConnectedToInternet, .networkConnectionLost:
+                return .failure(.networkError)
+            case .timedOut:
+                return .failure(.timeout)
+            default:
+                return .failure(.networkError)
+            }
         } catch {
             return .failure(errorsResolver.resolve(error: error))
         }

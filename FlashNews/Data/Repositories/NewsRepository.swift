@@ -21,6 +21,9 @@ class NewsRepository: NewsRepositoryType {
         
         switch result {
         case .success(let articles):
+            if articles.isEmpty {
+                return .failure(.emptyResponse)
+            }
             let articlesListDomain = convertToArticles(from: articles)
             return .success(articlesListDomain)
         case .failure(let error):

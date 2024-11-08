@@ -20,12 +20,15 @@ struct MainContentView: View {
         NavigationStack {
             if let errorMessage = vm.errorMessage {
                 ErrorView(text: errorMessage, action: vm.onAppear)
+                    .accessibilityIdentifier("ErrorView")
             } else {
                 VStack {
                     CategoryListView(selectedCategory: $selectedCategory)
+                        .accessibilityIdentifier("CategoryListView")
                     
                     if vm.isLoading {
                         LoadingView()
+                            .accessibilityIdentifier("LoadingView")
                     } else {
                         let filteredNews = searchText.isEmpty ? vm.news : vm.news.filter {
                             $0.title.localizedCaseInsensitiveContains(searchText)
@@ -34,6 +37,7 @@ struct MainContentView: View {
                         if filteredNews.isEmpty {
                             Spacer()
                             EmptyNewsListView(selectedCategory: selectedCategory)
+                                .accessibilityIdentifier("EmptyNewsListView")
                             Spacer()
                         } else {
                             ScrollView {
@@ -44,6 +48,7 @@ struct MainContentView: View {
                                                 .navigationTransition(.zoom(sourceID: article, in: myNamespace))
                                         } label: {
                                             NewsItemView(article: article)
+                                                .accessibilityIdentifier("NewsItemView_\(article.title)")
                                         }
                                         .matchedTransitionSource(id: article
                                                                  ,in: myNamespace)
@@ -62,6 +67,7 @@ struct MainContentView: View {
                 }
                 .navigationTitle("Latest News")
                 .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
+                .accessibilityIdentifier("MainContentView")
             }
         }
         .onAppear {

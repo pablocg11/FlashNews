@@ -37,7 +37,6 @@ class APINewsDataSource: APINewsDataSourceProtocol {
                 let newsResponse = try JSONDecoder().decode(NewsReponseDTO.self, from: data)
                 return .success(newsResponse.articles)
             } catch {
-                print("Parsing error: \(error.localizedDescription)")
                 return .failure(.parsingError)
             }
             
@@ -51,11 +50,8 @@ class APINewsDataSource: APINewsDataSourceProtocol {
         return await getNews(category: category)
     }
     
-    
     private func handleError(error: HTTPClientError?) -> HTTPClientError {
         guard let error = error else { return .generic }
         return error
     }
-    
-    
 }
