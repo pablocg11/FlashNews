@@ -37,6 +37,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D62007D92CE2984F00675028 /* Exceptions for "FlashNewsTests" folder in "FlashNewsTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D6AFE1612CDC329F00BA3C58 /* FlashNewsTests */;
+		};
+		D62007DA2CE2989C00675028 /* Exceptions for "FlashNewsUITests" folder in "FlashNewsUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D63D55472CDE3E6F00A02B2D /* FlashNewsUITests */;
+		};
 		D64C8A842CDD7A6300B5A34D /* Exceptions for "FlashNews" folder in "FlashNews" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -49,6 +63,9 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D63D55492CDE3E6F00A02B2D /* FlashNewsUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D62007DA2CE2989C00675028 /* Exceptions for "FlashNewsUITests" folder in "FlashNewsUITests" target */,
+			);
 			path = FlashNewsUITests;
 			sourceTree = "<group>";
 		};
@@ -62,6 +79,9 @@
 		};
 		D6AFE1632CDC329F00BA3C58 /* FlashNewsTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D62007D92CE2984F00675028 /* Exceptions for "FlashNewsTests" folder in "FlashNewsTests" target */,
+			);
 			path = FlashNewsTests;
 			sourceTree = "<group>";
 		};
