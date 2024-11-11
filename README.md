@@ -6,14 +6,12 @@ The app integrates with **NewsAPI** (which provides the latest headlines) and is
 
 ## Features ✨
 
+- **LazyVGrid Layout**: Display news articles in a LazyVGrid for a smooth, grid-based layout that adapts to different screen sizes. 🏙️
+- **Category-Based News**: Browse news by categories like General, Business, Sports, Technology, and more. 📰
 - **Searchable News**: Easily find articles using specific keywords. 🔍
-- **Push Notifications**: Get notified about breaking news in real-time. 🔔
-- **Clean Architecture**: Follows **Clean Architecture** principles to ensure scalability and maintainability. 🏗️
-- **MVVM**: Built using the **MVVM (Model-View-ViewModel)** pattern for separation of concerns. 🧩
-- **Transition Animations**: Smooth animations for transitions between views. ✨
-- **DTOs (Data Transfer Objects)**: Uses DTOs for better data integrity and communication between layers. 💾
-- **NewsAPI Integration**: Fetches the latest headlines using **NewsAPI’s Top Headlines Endpoint**. 🌐
-- **Responsive Design**: Consistent UI across different device sizes. 📱💻
+- **Article Details**: View in-depth articles with complete details and source information. 📖
+- **Save Articles**: Bookmark your favorite articles for later reading. 💾
+- **Share Articles**: Easily share articles with others through social media or messaging apps. 📲
 
 ## Tech Stack 🛠️
 
@@ -24,3 +22,4 @@ The app integrates with **NewsAPI** (which provides the latest headlines) and is
 - **MVVM**: For clean code and better maintainability. 🧹
 - **NewsAPI**: To fetch the latest news via **NewsAPI’s Top Headlines Endpoint**. 📰
 - **Dependency Injection with Composition Root**: Manages dependencies using a **Composition Root** that follows the **Factory Pattern** for instantiating services and components, ensuring decoupling and better testability. ⚙️
+- **CI/CD with Bitrise**: Automated continuous integration and delivery to streamline testing, building, and deployment processes, ensuring faster feedback and a more stable release cycle. 🔄
