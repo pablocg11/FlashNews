@@ -67,7 +67,7 @@ struct MainContentView: View {
                 }
                 .navigationTitle("Latest News")
                 .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
-                .accessibilityIdentifier("MainContentView")
+                .accessibilityIdentifier("SearchField")
             }
         }
         .onAppear {

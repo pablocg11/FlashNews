@@ -1,58 +1,55 @@
 
-import UserNotifications
 import SwiftUI
-import FirebaseCore
+import Foundation
 import UIKit
+import FirebaseCore
 import FirebaseMessaging
+import UserNotifications
 
-class AppDelegate: NSObject, UIApplicationDelegate {
+class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
         
-        // Solicitar permiso para notificaciones
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
-            if granted {
-                DispatchQueue.main.async {
-                    application.registerForRemoteNotifications() // Registra el dispositivo para notificaciones remotas
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current()
+                .requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+                    print("Permission granted: \(granted)")
                 }
-            }
+            UNUserNotificationCenter.current().delegate = self
+            Messaging.messaging().delegate = self
         }
-        
-        // Registrar el dispositivo para recibir notificaciones push
-        Messaging.messaging().delegate = self
-        
+        application.registerForRemoteNotifications()
         return true
     }
     
-    // Se llama cuando se recibe el token de notificación
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        Messaging.messaging().apnsToken = deviceToken
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .list, .sound])
     }
     
-    // Maneja el error si la notificación no se puede registrar
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register for notifications: \(error)")
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        NotificationCenter.default.post(name: Notification.Name("didReceiveRemoteNotification"), object: nil, userInfo: userInfo)
+        completionHandler()
     }
-}
-
-extension AppDelegate: MessagingDelegate {
-    // Se llama cuando el token de FCM cambia
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        if let token = fcmToken {
-            print("FCM token: \(token)")
-            // Aquí puedes enviar el token a tu backend si es necesario para asociarlo con el usuario
-        }
+    
+    @objc func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        print("Firebase registration token: \(String(describing: fcmToken))")
     }
 }
 
 @main
 struct FlashNewsApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
             ContentView(newsListViewFactory: NewsListViewFactory())
+                .accessibilityIdentifier("ContentView")
         }
     }
 }

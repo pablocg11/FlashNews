@@ -117,4 +117,7 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+GoogleService-Info.plist
+env.xcconfig
+
 # End of https://www.toptal.com/developers/gitignore/api/swift,macos

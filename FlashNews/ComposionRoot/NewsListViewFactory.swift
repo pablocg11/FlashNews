@@ -31,16 +31,11 @@ class NewsListViewFactory {
     }
     
     private func createAPIDataSource() -> APINewsDataSourceProtocol {
-        return APINewsDataSource(httpClient: createHttpClient(),
-                                 APIKeyManager: createAPIKeyManager())
+        return APINewsDataSource(httpClient: createHttpClient())
     }
     
     private func createErrorMapper() -> DomainErrorMapper {
         return DomainErrorMapper()
-    }
-    
-    private func createAPIKeyManager() -> APIKeyManager {
-        APIKeyManager()
     }
     
     private func createHttpClient() -> HTTPClientProtocol {

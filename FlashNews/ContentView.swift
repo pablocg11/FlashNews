@@ -6,6 +6,8 @@ struct ContentView: View {
     
     var body: some View {
         newsListViewFactory.createView()
+            .accessibilityIdentifier("MainContentView")
     }
 }
+
 

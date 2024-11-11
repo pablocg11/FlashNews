@@ -9,17 +9,17 @@ protocol APINewsDataSourceProtocol {
 class APINewsDataSource: APINewsDataSourceProtocol {
     
     private let httpClient: HTTPClientProtocol
-    private let APIKeyManager: APIKeyManager
     private let baseUrl = "https://newsapi.org/v2/top-headlines"
     private var currentPage: Int = 1
         
-    init(httpClient: HTTPClientProtocol, APIKeyManager: APIKeyManager) {
+    init(httpClient: HTTPClientProtocol) {
         self.httpClient = httpClient
-        self.APIKeyManager = APIKeyManager
     }
     
     func getNews(category: Categories) async -> Result<[ArticleDTO], HTTPClientError> {
-        guard let apiKey = APIKeyManager.getAPIKey() else { return .failure(.clientError)}
+        guard let apiKey = ProcessInfo.processInfo.environment["NEWS_API_KEY"] else {
+            fatalError("No se pudo cargar la configuración de la API.")
+        }
         
         let params: [String: Any] = [
             "apiKey"    :   apiKey,
