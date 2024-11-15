@@ -9,5 +9,3 @@ struct ContentView: View {
             .accessibilityIdentifier("MainContentView")
     }
 }
-
-

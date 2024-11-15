@@ -4,21 +4,16 @@ import Foundation
 class NewsListViewFactory {
     
     func createView() -> MainContentView {
-        return MainContentView(vm: createNewsListViewViewModel())
+        return MainContentView(viewModel: createNewsListViewViewModel())
     }
     
     private func createNewsListViewViewModel() -> NewsListViewModel {
         return NewsListViewModel(getNewsUseCase: createGetNewsUseCase(),
-                                 getMoreNewsUseCase: createGetMoreNewsUseCase(),
                                  errorMapper: createPresentationErrorMapper())
     }
     
     private func createGetNewsUseCase() -> GetNewsListUseCaseType {
         return GetNewsListUseCase(repository: createNewsRepository())
-    }
-    
-    private func createGetMoreNewsUseCase() -> GetMoreNewsUseCaseType {
-        return GetMoreNewsUseCase(repository: createNewsRepository())
     }
     
     private func createPresentationErrorMapper() -> PresentationErrorMapper {

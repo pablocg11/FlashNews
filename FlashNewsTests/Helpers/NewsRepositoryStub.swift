@@ -2,8 +2,7 @@
 import Foundation
 @testable import FlashNews
 
-class NewsRepositoryStub : NewsRepositoryType {
-    
+class NewsRepositoryStub: NewsRepositoryType {
     private let result: Result<[Article], DomainError>
     
     init(result: Result<[Article], DomainError>) {

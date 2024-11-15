@@ -2,35 +2,35 @@
 import SwiftUI
 
 struct MainContentView: View {
-    @ObservedObject var vm: NewsListViewModel
+    @ObservedObject var viewModel: NewsListViewModel
     @State private var selectedCategory: Categories = .general
     @State private var searchText: String = ""
     @Namespace private var myNamespace
     
     let columns = [
         GridItem(.flexible(minimum: 180, maximum: 180)),
-        GridItem(.flexible(minimum: 180, maximum: 180)),
+        GridItem(.flexible(minimum: 180, maximum: 180))
     ]
     
-    init(vm: NewsListViewModel) {
-        self.vm = vm
+    init(viewModel: NewsListViewModel) {
+        self.viewModel = viewModel
     }
     
     var body: some View {
         NavigationStack {
-            if let errorMessage = vm.errorMessage {
-                ErrorView(text: errorMessage, action: vm.onAppear)
+            if let errorMessage = viewModel.errorMessage {
+                ErrorView(text: errorMessage, action: viewModel.onAppear)
                     .accessibilityIdentifier("ErrorView")
             } else {
                 VStack {
                     CategoryListView(selectedCategory: $selectedCategory)
                         .accessibilityIdentifier("CategoryListView")
                     
-                    if vm.isLoading {
+                    if viewModel.isLoading {
                         LoadingView()
                             .accessibilityIdentifier("LoadingView")
                     } else {
-                        let filteredNews = searchText.isEmpty ? vm.news : vm.news.filter {
+                        let filteredNews = searchText.isEmpty ? viewModel.news : viewModel.news.filter {
                             $0.title.localizedCaseInsensitiveContains(searchText)
                         }
                         
@@ -50,13 +50,13 @@ struct MainContentView: View {
                                             NewsItemView(article: article)
                                                 .accessibilityIdentifier("NewsItemView_\(article.title)")
                                         }
-                                        .matchedTransitionSource(id: article
-                                                                 ,in: myNamespace)
+                                        .matchedTransitionSource(id: article,
+                                                                 in: myNamespace)
                                     }
                                 }
                             }
                             .refreshable {
-                                vm.onAppear()
+                                viewModel.onAppear()
                             }
                             .scrollIndicators(.hidden)
                             .padding()
@@ -71,10 +71,10 @@ struct MainContentView: View {
             }
         }
         .onAppear {
-            vm.onAppear()
+            viewModel.onAppear()
         }
         .onChange(of: selectedCategory) {
-            vm.fetchNews(category: selectedCategory)
+            viewModel.fetchNews(category: selectedCategory)
         }
     }
 }

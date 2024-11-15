@@ -1,0 +1,28 @@
+# Desactiva reglas específicas
+disabled_rules:
+  - force_cast
+  - leading_whitespace
+  - trailing_whitespace
+
+# Reglas habilitadas solo en ciertos archivos
+opt_in_rules:
+  - closure_spacing
+
+# Configuración específica para reglas
+line_length:
+  warning: 120
+  error: 150
+
+type_name:
+  min_length:
+    warning: 3
+    error: 4
+  max_length:
+    warning: 40
+    error: 50
+
+# Incluir solo ciertos archivos/directorios
+included:
+  - FlashNews
+  - FlashNewsTests
+

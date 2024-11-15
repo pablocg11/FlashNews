@@ -18,7 +18,7 @@ final class GetNewsListUseCaseTests: XCTestCase {
     }
     
     func test_execute_successfully_returns_empty_array_when_repository_returns_empty_array() async throws {
-        let result: Result<[Article],DomainError> = .success([])
+        let result: Result<[Article], DomainError> = .success([])
         
         let repositoryStub = NewsRepositoryStub(result: result)
         let sut = GetNewsListUseCase(repository: repositoryStub)
@@ -30,7 +30,7 @@ final class GetNewsListUseCaseTests: XCTestCase {
     }
     
     func test_execute_returns_error_when_repository_returns_error() async throws {
-        let result: Result<[Article],DomainError> = .failure(.emptyResponse)
+        let result: Result<[Article], DomainError> = .failure(.emptyResponse)
         
         let repositoryStub = NewsRepositoryStub(result: result)
         let sut = GetNewsListUseCase(repository: repositoryStub)

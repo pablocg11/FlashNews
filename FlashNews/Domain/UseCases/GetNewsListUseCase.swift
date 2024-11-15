@@ -6,7 +6,6 @@ protocol GetNewsListUseCaseType {
 }
 
 class GetNewsListUseCase: GetNewsListUseCaseType {
-    
     private let repository: NewsRepositoryType
     
     init(repository: NewsRepositoryType) {

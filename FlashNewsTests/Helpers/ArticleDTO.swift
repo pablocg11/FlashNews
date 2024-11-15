@@ -1,90 +1,183 @@
+
 import Foundation
 @testable import FlashNews
 
 extension ArticleDTO {
-    
     static func getMocks() -> [ArticleDTO] {
         return [
-            ArticleDTO(
-                source: SourceDTO(id: "1", name: "Test Source"),
-                author: "Test Author",
-                title: "Sample News Title",
-                description: "This is a sample description for testing.",
-                url: "https://example.com/sample-news",
-                urlToImage: "https://example.com/sample-image.jpg",
-                publishedAt: "2024-01-01T10:00:00Z",
-                content: "This is sample content for testing purposes."
-            ),
-            ArticleDTO(
-                source: SourceDTO(id: "2", name: "Another Source"),
-                author: "Another Author",
-                title: "Another News Title",
-                description: "This is another sample description.",
-                url: "https://example.com/another-news",
-                urlToImage: "https://example.com/another-image.jpg",
-                publishedAt: "2024-01-02T12:00:00Z",
-                content: "This is another sample content."
-            ),
-            ArticleDTO(
-                source: SourceDTO(id: "3", name: "Tech Daily"),
-                author: "John Doe",
-                title: "The Future of AI in 2024",
-                description: "Exploring the advancements in AI technology and their implications.",
-                url: "https://example.com/ai-future-2024",
-                urlToImage: "https://example.com/ai-image.jpg",
-                publishedAt: "2024-02-15T08:00:00Z",
-                content: "The future of AI is bright, with new developments in machine learning, computer vision, and natural language processing. Companies are racing to integrate AI into their products."
-            ),
-            ArticleDTO(
-                source: SourceDTO(id: "4", name: "Global News Network"),
-                author: "Jane Smith",
-                title: "Global Warming Effects on Agriculture",
-                description: "How climate change is impacting crop yields and food security worldwide.",
-                url: "https://example.com/global-warming-agriculture",
-                urlToImage: "https://example.com/agriculture-image.jpg",
-                publishedAt: "2024-03-22T14:30:00Z",
-                content: "As temperatures rise, many regions are seeing a decline in agricultural productivity. Droughts, floods, and temperature extremes are affecting crop yields, with global food security at risk."
-            ),
-            ArticleDTO(
-                source: SourceDTO(id: "5", name: "Sports Insider"),
-                author: "Chris Johnson",
-                title: "Champions League Final Preview",
-                description: "A breakdown of the teams competing for the title in this year's Champions League final.",
-                url: "https://example.com/champions-league-preview",
-                urlToImage: "https://example.com/soccer-image.jpg",
-                publishedAt: "2024-05-01T19:00:00Z",
-                content: "The Champions League final is just around the corner, and fans are eagerly anticipating the showdown between the top two teams in Europe. In-depth analysis of tactics, key players, and predictions."
-            ),
-            ArticleDTO(
-                source: SourceDTO(id: "6", name: "Health Today"),
-                author: "Dr. Susan Lee",
-                title: "5 Tips for Better Mental Health",
-                description: "Simple strategies to improve your mental well-being and reduce stress.",
-                url: "https://example.com/mental-health-tips",
-                urlToImage: "https://example.com/mental-health-image.jpg",
-                publishedAt: "2024-04-10T07:45:00Z",
-                content: "Mental health is just as important as physical health. Here are five tips to improve your mental well-being: 1) Regular exercise, 2) Meditation, 3) Adequate sleep, 4) Healthy diet, 5) Social connections."
-            ),
-            ArticleDTO(
-                source: SourceDTO(id: "7", name: "Tech World Today"),
-                author: "Alice Cooper",
-                title: "Apple's New Product Launch: What to Expect",
-                description: "A preview of the upcoming product release from Apple, including rumored features and specs.",
-                url: "https://example.com/apple-product-launch",
-                urlToImage: "https://example.com/apple-launch-image.jpg",
-                publishedAt: "2024-06-12T10:30:00Z",
-                content: "Apple is set to unveil its latest products this fall. Here's a look at what we can expect, from the iPhone 15 to a new line of wearables. Analysts are speculating about groundbreaking features that could change the industry."
-            ),
-            ArticleDTO(
-                source: SourceDTO(id: "8", name: "Entertainment Weekly"),
-                author: "Michael Roberts",
-                title: "Summer Blockbusters to Watch",
-                description: "A guide to the biggest movie releases of the summer season.",
-                url: "https://example.com/summer-blockbusters",
-                urlToImage: "https://example.com/movie-image.jpg",
-                publishedAt: "2024-05-25T20:00:00Z",
-                content: "Summer is here, and so are the most anticipated films of the season. From action-packed superhero movies to heartwarming family films, here's your ultimate guide to the summer blockbusters you can't miss."
-            )
+            getMockArticleDTO1(),
+            getMockArticleDTO2(),
+            getMockArticleDTO3(),
+            getMockArticleDTO4(),
+            getMockArticleDTO5(),
+            getMockArticleDTO6(),
+            getMockArticleDTO7(),
+            getMockArticleDTO8(),
+            getMockArticleDTO9(),
+            getMockArticleDTO10()
         ]
+    }
+    
+    private static func getMockArticleDTO1() -> ArticleDTO {
+        return ArticleDTO(
+            source: SourceDTO(id: "1", name: "Tech Times"),
+            author: "John Doe",
+            title: "Breaking News: Swift 6 Announced",
+            description: "Apple has just announced Swift 6 at WWDC, with many new features for iOS developers.",
+            url: "https://example.com/swift6-announcement",
+            urlToImage: "https://example.com/images/swift6.png",
+            publishedAt: "2023-06-15T10:30:00Z",
+            content: """
+            Swift 6 introduces new capabilities
+            for concurrency and improved performance,
+            making it easier for developers to write
+            efficient code.
+            """
+        )
+    }
+    
+    private static func getMockArticleDTO2() -> ArticleDTO {
+        return ArticleDTO(
+            source: SourceDTO(id: "2", name: "Financial Daily"),
+            author: "Jane Smith",
+            title: "Global Markets Update",
+            description: "A roundup of today’s financial markets, with insights from experts.",
+            url: "https://example.com/markets-update",
+            urlToImage: "https://example.com/images/markets.png",
+            publishedAt: "2023-06-15T09:00:00Z",
+            content: """
+            Stock markets across the world saw varied performances today,
+            with tech stocks experiencing a small dip.
+            """
+        )
+    }
+    
+    private static func getMockArticleDTO3() -> ArticleDTO {
+        ArticleDTO(
+            source: SourceDTO(id: "3", name: "Health Today"),
+            author: "Alice Johnson",
+            title: "Health Alert: New Vaccine for Flu Season",
+            description: "The latest vaccine has been shown to be highly effective in clinical trials.",
+            url: "https://example.com/flu-vaccine",
+            urlToImage: "https://example.com/images/flu-vaccine.png",
+            publishedAt: "2023-06-15T08:15:00Z",
+            content: """
+            According to recent studies, the new flu vaccine is effective against multiple strains
+            and has a higher efficacy rate than previous versions.
+            """
+        )
+    }
+    
+    private static func getMockArticleDTO4() -> ArticleDTO {
+        return ArticleDTO(
+            source: SourceDTO(id: "4", name: "AI Insights"),
+            author: "Emily Chen",
+            title: "Tech Giants Embrace AI",
+            description: "Leading tech companies are making significant investments in AI.",
+            url: "https://example.com/ai-investments",
+            urlToImage: "https://example.com/images/ai.png",
+            publishedAt: "2023-06-14T14:45:00Z",
+            content: """
+            Companies like Google, Apple, and Amazon are increasingly focusing on AI,
+            introducing new tools to enhance user experiences.
+            """
+        )
+    }
+    
+    private static func getMockArticleDTO5() -> ArticleDTO {
+        return ArticleDTO(
+            source: SourceDTO(id: "5", name: "Sports Weekly"),
+            author: "Michael Brown",
+            title: "Sports Roundup: Highlights of the Week",
+            description: "Catch up on the top moments in sports from this week.",
+            url: "https://example.com/sports-highlights",
+            urlToImage: "https://example.com/images/sports.png",
+            publishedAt: "2023-06-13T19:30:00Z",
+            content: """
+            Highlights include thrilling matches in the NBA, a surprising comeback in the Premier League,
+            and new records in Olympic swimming trials.
+            """
+        )
+    }
+    
+    private static func getMockArticleDTO6() -> ArticleDTO {
+        return ArticleDTO(
+            source: SourceDTO(id: "6", name: "Foodie Daily"),
+            author: "Rachel Green",
+            title: "New Culinary Trends to Try This Summer",
+            description: "Explore new recipes and flavors that are making waves this season.",
+            url: "https://example.com/culinary-trends",
+            urlToImage: "https://example.com/images/culinary.png",
+            publishedAt: "2023-06-13T12:10:00Z",
+            content: """
+            "From plant-based alternatives to unique fusion dishes, 
+            this summer is full of bold flavors and culinary creativity.
+            """
+        )
+    }
+    
+    private static func getMockArticleDTO7() -> ArticleDTO {
+        return ArticleDTO(
+            source: SourceDTO(id: "7", name: "Science Daily"),
+            author: "Mark Wilson",
+            title: "Exploring Mars: Latest Discoveries from NASA",
+            description: "NASA's rover sends back new data, revealing interesting details about Mars.",
+            url: "https://example.com/mars-discoveries",
+            urlToImage: "https://example.com/images/mars.png",
+            publishedAt: "2023-06-12T16:25:00Z",
+            content: """
+            "Scientists are excited about the recent findings, which provide more clues about Mars'
+            geological history and potential for supporting life.
+            """
+        )
+    }
+    
+    private static func getMockArticleDTO8() -> ArticleDTO {
+        return ArticleDTO(
+            source: SourceDTO(id: "8", name: "Movie Magic"),
+            author: "Sophia Turner",
+            title: "Entertainment Buzz: Upcoming Movies to Watch",
+            description: "From action-packed blockbusters to indie films, there’s something for everyone.",
+            url: "https://example.com/upcoming-movies",
+            urlToImage: "https://example.com/images/movies.png",
+            publishedAt: "2023-06-12T11:00:00Z",
+            content: """
+            "Check out our list of highly anticipated films set to release this summer,
+            featuring top actors and fresh storylines.
+            """
+        )
+    }
+    
+    private static func getMockArticleDTO9() -> ArticleDTO {
+        return ArticleDTO(
+            source: SourceDTO(id: "9", name: "Environment Matters"),
+            author: "Liam Parker",
+            title: "Climate Change: Global Impact and Local Actions",
+            description: "An in-depth look at climate change effects worldwide and how communities are responding.",
+            url: "https://example.com/climate-change",
+            urlToImage: "https://example.com/images/climate.png",
+            publishedAt: "2023-06-11T20:20:00Z",
+            content: """
+            Experts emphasize the need for global cooperation 
+            to mitigate effects on vulnerable regions and ecosystems.
+            """
+        )
+    }
+    
+    private static func getMockArticleDTO10() -> ArticleDTO {
+        return ArticleDTO(
+            source: SourceDTO(id: "10", name: "Future Tech"),
+            author: "Ethan Lewis",
+            title: "Advancements in Quantum Computing",
+            description: "Quantum computing is closer to reality, with new breakthroughs from research teams.",
+            url: "https://example.com/quantum-computing",
+            urlToImage: "https://example.com/images/quantum.png",
+            publishedAt: "2023-06-11T09:50:00Z",
+            content: """
+            "These advancements could revolutionize industries, 
+            from pharmaceuticals to cryptography,
+            by performing complex calculations at unprecedented speeds.
+            """
+        )
     }
 }

@@ -3,14 +3,12 @@ import Foundation
 
 protocol APINewsDataSourceProtocol {
     func getNews(category: Categories) async -> Result<[ArticleDTO], HTTPClientError>
-    func getMoreNews(category: Categories) async -> Result<[ArticleDTO], HTTPClientError>
 }
 
 class APINewsDataSource: APINewsDataSourceProtocol {
     
     private let httpClient: HTTPClientProtocol
     private let baseUrl = "https://newsapi.org/v2/top-headlines"
-    private var currentPage: Int = 1
         
     init(httpClient: HTTPClientProtocol) {
         self.httpClient = httpClient
@@ -22,13 +20,12 @@ class APINewsDataSource: APINewsDataSourceProtocol {
         }
         
         let params: [String: Any] = [
-            "apiKey"    :   apiKey,
-            "country"   :   "us",
-            "page"      :   currentPage,
-            "category"  :   category
+            "apiKey": apiKey,
+            "country": "us",
+            "category": category
         ]
         
-        let request = HTTPRequest(baseURL: baseUrl, method: .get, params: params)
+        let request = HTTPRequest(baseURL: baseUrl, params: params, method: .get)
         let result = await httpClient.makeRequest(request)
         
         switch result {
@@ -44,12 +41,7 @@ class APINewsDataSource: APINewsDataSourceProtocol {
             return .failure(handleError(error: error))
         }
     }
-    
-    func getMoreNews(category: Categories) async -> Result<[ArticleDTO], HTTPClientError> {
-        currentPage += 1
-        return await getNews(category: category)
-    }
-    
+
     private func handleError(error: HTTPClientError?) -> HTTPClientError {
         guard let error = error else { return .generic }
         return error

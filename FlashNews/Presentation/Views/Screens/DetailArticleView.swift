@@ -99,7 +99,7 @@ struct DetailArticleView: View {
                     
                     Button(action: {
                         isSharingArticle = true
-                    }) {
+                    }, label: {
                         HStack {
                             Text("Share Article")
                                 .fontWeight(.semibold)
@@ -110,13 +110,15 @@ struct DetailArticleView: View {
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(10)
-                    }
+                    })
                     .padding(.horizontal)
                 }
             }
         }
         .scrollIndicators(.hidden)
-        .background(LinearGradient(gradient: Gradient(colors: [Color.white, Color(UIColor.systemGray6)]), startPoint: .top, endPoint: .bottom))
+        .background(LinearGradient(gradient: Gradient(colors: [Color.white, Color(UIColor.systemGray6)]),
+                                   startPoint: .top,
+                                   endPoint: .bottom))
         .sheet(isPresented: $isSharingArticle) {
             ShareSheet(activityItems: [article.url])
         }

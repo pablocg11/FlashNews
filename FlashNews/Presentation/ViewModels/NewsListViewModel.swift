@@ -2,16 +2,12 @@
 import Foundation
 
 class NewsListViewModel: ObservableObject {
-
     private let getNewsUseCase: GetNewsListUseCaseType
-    private let getMoreNewsUseCase: GetMoreNewsUseCaseType
     private let errorMapper: PresentationErrorMapper
     
     init(getNewsUseCase: GetNewsListUseCaseType,
-         getMoreNewsUseCase: GetMoreNewsUseCaseType,
          errorMapper: PresentationErrorMapper) {
         self.getNewsUseCase = getNewsUseCase
-        self.getMoreNewsUseCase = getMoreNewsUseCase
         self.errorMapper = errorMapper
     }
     
@@ -31,15 +27,6 @@ class NewsListViewModel: ObservableObject {
             await handleResult(result)
         }
     }
-        
-    func fetchMoreNews(category: Categories) {
-        isLoading = true
-        
-        Task {
-            let result = await self.getMoreNewsUseCase.execute(category: category)
-            await handleResult(result, isFetchMore: true)
-        }
-    }
     
     private func handleResult(_ result: Result<[Article], DomainError>, isFetchMore: Bool = false) async {
         switch result {
@@ -47,11 +34,7 @@ class NewsListViewModel: ObservableObject {
             await MainActor.run {
                 self.isLoading = false
                 self.errorMessage = nil
-                if isFetchMore {
-                    self.news.append(contentsOf: articles)
-                } else {
-                    self.news = articles
-                }
+                self.news = articles   
             }
         case .failure(let error):
             handleError(error: error)

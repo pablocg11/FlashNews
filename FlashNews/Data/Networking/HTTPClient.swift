@@ -1,4 +1,3 @@
-
 import Foundation
 import Combine
 
@@ -7,7 +6,7 @@ protocol HTTPClientProtocol {
 }
 
 class HTTPClient: HTTPClientProtocol {
-    
+
     let session: URLSession
     let errorsResolver: HTTPErrorsResolver
     let requestBuilder: HTTPRequestBuilder
@@ -25,35 +24,45 @@ class HTTPClient: HTTPClientProtocol {
             return .failure(.badURL)
         }
         
+        return await performRequest(url)
+    }
+
+    private func performRequest(_ url: URL) async -> Result<Data, HTTPClientError> {
         do {
             let result = try await session.data(from: url)
-            
-            guard let response = result.1 as? HTTPURLResponse else {
-                return .failure(.invalidResponse)
-            }
-            
-            switch response.statusCode {
-            case 200...299:
-                return .success(result.0)
-            case 400...499:
-                return .failure(.clientError)
-            case 500...599:
-                return .failure(.serverError)
-            default:
-                return .failure(.serverError)
-            }
-            
+            return handleHTTPResponse(result.1, data: result.0)
         } catch let error as URLError {
-            switch error.code {
-            case .notConnectedToInternet, .networkConnectionLost:
-                return .failure(.networkError)
-            case .timedOut:
-                return .failure(.timeout)
-            default:
-                return .failure(.networkError)
-            }
+            return handleNetworkError(error)
         } catch {
             return .failure(errorsResolver.resolve(error: error))
+        }
+    }
+    
+    private func handleHTTPResponse(_ response: URLResponse?, data: Data) -> Result<Data, HTTPClientError> {
+        guard let httpResponse = response as? HTTPURLResponse else {
+            return .failure(.invalidResponse)
+        }
+        
+        switch httpResponse.statusCode {
+        case 200...299:
+            return .success(data)
+        case 400...499:
+            return .failure(.clientError)
+        case 500...599:
+            return .failure(.serverError)
+        default:
+            return .failure(.serverError)
+        }
+    }
+    
+    private func handleNetworkError(_ error: URLError) -> Result<Data, HTTPClientError> {
+        switch error.code {
+        case .notConnectedToInternet, .networkConnectionLost:
+            return .failure(.networkError)
+        case .timedOut:
+            return .failure(.timeout)
+        default:
+            return .failure(.networkError)
         }
     }
 }

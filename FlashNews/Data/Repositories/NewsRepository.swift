@@ -3,7 +3,6 @@ import Foundation
 
 protocol NewsRepositoryType {
     func getAllNews(category: Categories) async -> Result<[Article], DomainError>
-    func getMoreNews(category: Categories) async -> Result<[Article], DomainError>
 }
 
 class NewsRepository: NewsRepositoryType {
@@ -25,18 +24,6 @@ class NewsRepository: NewsRepositoryType {
                 return .failure(.emptyResponse)
             }
             let articlesListDomain = convertToArticles(from: articles)
-            return .success(articlesListDomain)
-        case .failure(let error):
-            return .failure(errorMapper.map(error: error))
-        }
-    }
-    
-    func getMoreNews(category: Categories) async -> Result<[Article], DomainError> {
-        let result = await apiDataSource.getMoreNews(category: category)
-                
-        switch result {
-        case .success(let articles):
-            let articlesListDomain = articles.map { Article(dto: $0) }
             return .success(articlesListDomain)
         case .failure(let error):
             return .failure(errorMapper.map(error: error))
