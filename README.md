@@ -1,3 +1,6 @@
+
+![flashNewsIcon copy](https://github.com/user-attachments/assets/152300e2-be30-4514-9ab2-66e34726354e)
+
 # FlashNews 📱📰
 
 FlashNews is a **SwiftUI-based** News Aggregator app built with **Clean Architecture** principles. It allows users to access the latest news articles, search for specific topics, and receive real-time push notifications.
@@ -22,4 +25,5 @@ The app integrates with **NewsAPI** (which provides the latest headlines) and is
 - **MVVM**: For clean code and better maintainability. 🧹
 - **NewsAPI**: To fetch the latest news via **NewsAPI’s Top Headlines Endpoint**. 📰
 - **Dependency Injection with Composition Root**: Manages dependencies using a **Composition Root** that follows the **Factory Pattern** for instantiating services and components, ensuring decoupling and better testability. ⚙️
+- **SwiftLint configuration**: to ensure clean code practices
 - **CI/CD with Bitrise**: Automated continuous integration and delivery to streamline testing, building, and deployment processes, ensuring faster feedback and a more stable release cycle. 🔄
