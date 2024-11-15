@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/152300e2-be30-4514-9ab2-66e34726354e" width="200" style="border-radius: 15px;"/>
+  <img src="https://github.com/user-attachments/assets/152300e2-be30-4514-9ab2-66e34726354e" width="200"/>
 </p>
 
 # FlashNews 📱📰
