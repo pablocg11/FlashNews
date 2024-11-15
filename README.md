@@ -28,3 +28,4 @@ The app integrates with **NewsAPI** (which provides the latest headlines) and is
 - **Dependency Injection with Composition Root**: Manages dependencies using a **Composition Root** that follows the **Factory Pattern** for instantiating services and components, ensuring decoupling and better testability. ⚙️
 - **SwiftLint configuration**: to ensure clean code practices
 - **CI/CD with Bitrise**: Automated continuous integration and delivery to streamline testing, building, and deployment processes, ensuring faster feedback and a more stable release cycle. 🔄
+- **Lottie**: For adding smooth and engaging animations to the app. 🎬
