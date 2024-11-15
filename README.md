@@ -15,7 +15,6 @@ The app integrates with **NewsAPI** (which provides the latest headlines) and is
 - **Category-Based News**: Browse news by categories like General, Business, Sports, Technology, and more. 📰
 - **Searchable News**: Easily find articles using specific keywords. 🔍
 - **Article Details**: View in-depth articles with complete details and source information. 📖
-- **Save Articles**: Bookmark your favorite articles for later reading. 💾
 - **Share Articles**: Easily share articles with others through social media or messaging apps. 📲
 
 ## Tech Stack 🛠️
