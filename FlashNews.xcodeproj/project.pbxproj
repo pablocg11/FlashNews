@@ -114,6 +114,7 @@
 				D65577892CD1447E0058D2A8 /* Sources */,
 				D655778A2CD1447E0058D2A8 /* Frameworks */,
 				D655778B2CD1447E0058D2A8 /* Resources */,
+				D6BD034B2CE6C43100D9CE8B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -214,6 +215,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D6BD034B2CE6C43100D9CE8B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/Users/pcastro/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D65577892CD1447E0058D2A8 /* Sources */ = {
@@ -371,6 +394,7 @@
 				DEVELOPMENT_TEAM = Y8HB8QQ3X5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlashNews/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = FlashNews;
@@ -414,6 +438,7 @@
 				DEVELOPMENT_TEAM = Y8HB8QQ3X5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlashNews/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = FlashNews;
