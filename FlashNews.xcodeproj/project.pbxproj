@@ -512,6 +512,7 @@
 				CODE_SIGN_ENTITLEMENTS = FlashNews/FlashNews.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"FlashNews/Preview Content\"";
 				DEVELOPMENT_TEAM = Y8HB8QQ3X5;
 				ENABLE_HARDENED_RUNTIME = YES;
