@@ -46,7 +46,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D63D55472CDE3E6F00A02B2D"
+               BlueprintIdentifier = "D6140BC32CED3D2200E108D3"
                BuildableName = "FlashNewsUITests.xctest"
                BlueprintName = "FlashNewsUITests"
                ReferencedContainer = "container:FlashNews.xcodeproj">

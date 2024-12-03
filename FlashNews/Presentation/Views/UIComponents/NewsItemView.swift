@@ -3,6 +3,7 @@ import SwiftUI
 
 struct NewsItemView: View {
     private var article: Article
+    @Environment(\.colorScheme) var colorScheme
     
     init(article: Article) {
         self.article = article
@@ -19,7 +20,9 @@ struct NewsItemView: View {
                         .opacity(0.7)
                         .overlay(
                             LinearGradient(
-                                gradient: Gradient(colors: [Color.black.opacity(0), Color.black]),
+                                gradient: colorScheme == .dark ?
+                                Gradient(colors: [Color.white.opacity(0), Color.white]) :
+                                Gradient(colors: [Color.black.opacity(0), Color.black]),
                                 startPoint: .top,
                                 endPoint: .bottom
                             )
@@ -49,10 +52,12 @@ struct NewsItemView: View {
             .padding()
             .frame(width: 175, height: 135)
             .multilineTextAlignment(.leading)
-            .foregroundColor(.white)
+            .foregroundColor(colorScheme == .dark ? .black : .white)
         }
         .frame(width: 180, height: 140)
-        .background(Color.white)
+        .background(
+            Color(UIColor.systemBackground)
+        )
         .cornerRadius(10)
     }
 }

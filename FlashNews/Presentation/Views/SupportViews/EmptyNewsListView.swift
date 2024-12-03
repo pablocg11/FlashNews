@@ -18,11 +18,7 @@ struct EmptyNewsListView: View {
                 .font(.headline)
                 .multilineTextAlignment(.center)
         }
-        .foregroundColor(.gray)
+        .foregroundColor(.secondary)
         .padding()
     }
-}
-
-#Preview {
-    EmptyNewsListView(selectedCategory: .business)
 }

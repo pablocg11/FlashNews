@@ -3,6 +3,7 @@ import SwiftUI
 struct DetailArticleView: View {
     private let article: Article
     @State private var isSharingArticle = false
+    @Environment(\.colorScheme) var colorScheme
     
     init(article: Article) {
         self.article = article
@@ -32,8 +33,8 @@ struct DetailArticleView: View {
                         Text("By \(author) from \(article.source.name)")
                             .font(.caption)
                             .padding(6)
-                            .background(Color.black.opacity(0.6))
-                            .foregroundColor(.white)
+                            .background(Color.primary.opacity(0.6))
+                            .foregroundColor(colorScheme == .dark ? .black : .white)
                             .cornerRadius(5)
                             .padding(10)
                     }
@@ -55,7 +56,7 @@ struct DetailArticleView: View {
                         .font(.caption)
                         .fontWeight(.light)
                 }
-                .foregroundColor(.gray)
+                .foregroundColor(.secondary)
                 .padding(.horizontal)
                 .padding(.bottom)
                 
@@ -90,8 +91,8 @@ struct DetailArticleView: View {
                         }
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
+                        .background(.blue)
+                        .foregroundColor(.primary)
                         .cornerRadius(10)
                     }
                     .padding(.horizontal)
@@ -107,7 +108,7 @@ struct DetailArticleView: View {
                         }
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(Color.blue)
+                        .background(.blue)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                     })
@@ -116,9 +117,16 @@ struct DetailArticleView: View {
             }
         }
         .scrollIndicators(.hidden)
-        .background(LinearGradient(gradient: Gradient(colors: [Color.white, Color(UIColor.systemGray6)]),
-                                   startPoint: .top,
-                                   endPoint: .bottom))
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color(UIColor.systemBackground),
+                    Color(UIColor.secondarySystemBackground)
+                ]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        )
         .sheet(isPresented: $isSharingArticle) {
             ShareSheet(activityItems: [article.url])
         }
