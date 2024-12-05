@@ -21,7 +21,7 @@ struct NewsItemView: View {
                         .overlay(
                             LinearGradient(
                                 gradient: colorScheme == .dark ?
-                                Gradient(colors: [Color.white.opacity(0), Color.white]) :
+                                Gradient(colors: [Color.white.opacity(0), Color.white.opacity(0.8)]) :
                                 Gradient(colors: [Color.black.opacity(0), Color.black]),
                                 startPoint: .top,
                                 endPoint: .bottom

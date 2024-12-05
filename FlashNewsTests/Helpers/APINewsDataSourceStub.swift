@@ -12,8 +12,4 @@ class APINewsDataSourceStub: APINewsDataSourceProtocol {
     func getNews(category: Categories) async -> Result<[ArticleDTO], HTTPClientError> {
         return articles
     }
-    
-    func getMoreNews(category: Categories) async -> Result<[ArticleDTO], HTTPClientError> {
-        return articles
-    }
 }

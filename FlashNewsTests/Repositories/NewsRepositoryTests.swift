@@ -16,18 +16,6 @@ final class NewsRepositoryTests: XCTestCase {
         XCTAssertEqual(articleList, articleListDomain)
     }
     
-    func test_getMoreNews_returns_success() async throws {
-        let apiDataSourceSub = APINewsDataSourceStub(articles: .success(ArticleDTO.getMocks()))
-        let sut = NewsRepository(apiDataSource: apiDataSourceSub, errorMapper: DomainErrorMapper())
-        
-        let result = await sut.getMoreNews(category: .general)
-        
-        let articleList = try XCTUnwrap(result.get())
-        let articleListDomain = ArticleDTO.getMocks().map { Article(dto: $0) }
-                    
-        XCTAssertEqual(articleList, articleListDomain)
-    }
-    
     func test_getAllNews_returns_error_when_empty() async throws {
         let apiDataSourceSub = APINewsDataSourceStub(articles: .success([]))
         let sut = NewsRepository(apiDataSource: apiDataSourceSub, errorMapper: DomainErrorMapper())

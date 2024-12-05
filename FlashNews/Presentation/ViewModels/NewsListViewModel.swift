@@ -28,7 +28,7 @@ class NewsListViewModel: ObservableObject {
         }
     }
     
-    private func handleResult(_ result: Result<[Article], DomainError>, isFetchMore: Bool = false) async {
+    private func handleResult(_ result: Result<[Article], DomainError>) async {
         switch result {
         case .success(let articles):
             await MainActor.run {

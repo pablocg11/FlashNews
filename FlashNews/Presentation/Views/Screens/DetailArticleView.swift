@@ -92,7 +92,7 @@ struct DetailArticleView: View {
                         .padding()
                         .frame(maxWidth: .infinity)
                         .background(.blue)
-                        .foregroundColor(.primary)
+                        .foregroundColor(.white)
                         .cornerRadius(10)
                     }
                     .padding(.horizontal)

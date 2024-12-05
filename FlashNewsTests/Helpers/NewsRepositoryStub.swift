@@ -12,8 +12,4 @@ class NewsRepositoryStub: NewsRepositoryType {
     func getAllNews(category: Categories) async -> Result<[Article], DomainError> {
         self.result
     }
-    
-    func getMoreNews(category: Categories) async -> Result<[Article], DomainError> {
-        self.result
-    }
 }
