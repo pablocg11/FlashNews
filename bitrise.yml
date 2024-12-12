@@ -1,24 +1,63 @@
-format_version: "11"
+format_version: '13'
 default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: ios
+workflows:
+  archive_and_export_app:
+    summary: Run your Xcode tests and create an IPA file to install your app on a
+      device or share it with your team.
+    description: The workflow will first clone your Git repository, cache and install
+      your project's dependencies if any, run your Xcode tests, export an IPA file
+      from the project and save it.
+  run_tests:
+    summary: Run your Xcode tests and get the test report.
+    description: The workflow will first clone your Git repository, cache and install
+      your project's dependencies if any, run your Xcode tests and save the test results.
+    steps:
+    - git-clone@8: {}
+    - restore-spm-cache@2: {}
+    - manage-ios-code-signing@2: {}
+    - xcode-test@6:
+        inputs:
+        - project_path: "$BITRISE_PROJECT_PATH"
+        - scheme: "$BITRISE_SCHEME"
+        - test_repetition_mode: retry_on_failure
+        - cache_level: none
+    - xcode-archive@5:
+        inputs:
+        - automatic_code_signing: api-key
+        - register_test_devices: 'yes'
+    - save-spm-cache@1: {}
+    - deploy-to-bitrise-io@2: {}
+    triggers:
+      push:
+      - branch: develop
+      pull_request:
+      - source_branch: "*"
+  archive_test_export:
+    summary: Run your Xcode tests and create an IPA file to install your app on a
+      device or share it with your team.
+    description: The workflow will first clone your Git repository, cache and install
+      your project's dependencies if any, run your Xcode tests, export an IPA file
+      from the project and save it.
+    steps:
+    - git-clone@8: {}
+    - manage-ios-code-signing@2:
+        inputs:
+        - register_test_devices: 'yes'
+        - apple_team_id: Y8HB8QQ3X5
+    - save-spm-cache@1: {}
+meta:
+  bitrise.io:
+    stack: osx-xcode-16.0.x
+    machine_type_id: g2-m1.4core
 app:
   envs:
   - BITRISE_PROJECT_PATH: FlashNews.xcodeproj
+    opts:
+      is_expand: false
   - BITRISE_SCHEME: FlashNews
+    opts:
+      is_expand: false
   - BITRISE_DISTRIBUTION_METHOD: development
-
-workflows:
-  manage-code-signing:
-    description: |
-      This workflow manages iOS code signing.
-    steps:
-    - git-clone@7: {}
-    - certificate-and-profile-installer@1:
-        inputs:
-        - distribution_type: $BITRISE_DISTRIBUTION_METHOD
-    - xcode-archive@4:
-        inputs:
-        - project_path: $BITRISE_PROJECT_PATH
-        - scheme: $BITRISE_SCHEME
-        - distribution_method: $BITRISE_DISTRIBUTION_METHOD
-        - automatic_code_signing: api-key
+    opts:
+      is_expand: false
