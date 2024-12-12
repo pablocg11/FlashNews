@@ -1,0 +1,24 @@
+format_version: "11"
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: ios
+app:
+  envs:
+  - BITRISE_PROJECT_PATH: FlashNews.xcodeproj
+  - BITRISE_SCHEME: FlashNews
+  - BITRISE_DISTRIBUTION_METHOD: development
+
+workflows:
+  manage-code-signing:
+    description: |
+      This workflow manages iOS code signing.
+    steps:
+    - git-clone@7: {}
+    - certificate-and-profile-installer@1:
+        inputs:
+        - distribution_type: $BITRISE_DISTRIBUTION_METHOD
+    - xcode-archive@4:
+        inputs:
+        - project_path: $BITRISE_PROJECT_PATH
+        - scheme: $BITRISE_SCHEME
+        - distribution_method: $BITRISE_DISTRIBUTION_METHOD
+        - automatic_code_signing: api-key
