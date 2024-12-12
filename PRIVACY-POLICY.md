@@ -15,7 +15,7 @@ The permission we request for notifications is solely to provide service functio
 ## Sharing Your Information
 FlashNews does not share any personal information with third parties, as we do not collect such information.
 
-## Security
+## Security
 We are committed to ensuring the security of any information you provide. While no Internet-based service is completely secure, we strive to protect your information to the best of our ability.
 
 ## Your Rights
