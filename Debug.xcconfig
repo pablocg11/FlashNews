@@ -1,8 +1,0 @@
-//
-//  Debug.xcconfig
-//  FlashNews
-
-// Configuration settings file format documentation can be found at:
-// https://help.apple.com/xcode/#/dev745c5c974
-
-NEWS_API_KEY = 6a0757b24e8f43628fc1ea0199cfaea7
