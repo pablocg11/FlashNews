@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/152300e2-be30-4514-9ab2-66e34726354e" width="200" style="border-radius: 15px;"/>
+  <img src="https://github.com/user-attachments/assets/152300e2-be30-4514-9ab2-66e34726354e" width="200"/>
 </p>
 
 # FlashNews 📱📰
@@ -27,6 +27,7 @@ The app integrates with **NewsAPI** (which provides the latest headlines) and is
 - **MVVM**: For clean code and better maintainability. 🧹
 - **NewsAPI**: To fetch the latest news via **NewsAPI’s Top Headlines Endpoint**. 📰
 - **Dependency Injection with Composition Root**: Manages dependencies using a **Composition Root** that follows the **Factory Pattern** for instantiating services and components, ensuring decoupling and better testability. ⚙️
+
 - **SwiftLint configuration**: to ensure clean code practices
 - **CI/CD with Bitrise**: Automated continuous integration and delivery to streamline testing, building, and deployment processes, ensuring faster feedback and a more stable release cycle. 🔄
 - **Lottie**: For adding smooth and engaging animations to the app. 🎬
@@ -36,6 +37,6 @@ The app integrates with **NewsAPI** (which provides the latest headlines) and is
 <p align="center">
   <img src="https://github.com/user-attachments/assets/24e46684-ba55-407e-860e-be1c3cac09da" alt="Home Screen" width="300"/>
   <img src="https://github.com/user-attachments/assets/f22b2479-6ee2-4c62-803f-4064f0bbcafb" alt="Detail Screen" width="300"/>
-  <img src="https://github.com/user-attachments/assets/f22b2479-6ee2-4c62-803f-4064f0bbcafb" alt="Search Screen" width="300"/>
+  <img src="https://github.com/user-attachments/assets/dc1f250b-2323-4187-9ea9-9db9dbfff114" alt="Search Screen" width="300"/>
 </p>
 
