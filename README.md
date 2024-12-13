@@ -21,6 +21,7 @@ The app integrates with **NewsAPI** (which provides the latest headlines) and is
 
 - **SwiftUI**: For building the user interface using a declarative syntax. 🖥️
 - **Firebase Cloud Messaging**: For push notifications. 📲
+- **Firebase Crashlytics**: For real-time crash reporting and debugging. 🐛
 - **Clean Architecture**: For separating concerns and ensuring maintainability. 🧠
 - **DTOs**: For clean and structured data transfer. 💡
 - **MVVM**: For clean code and better maintainability. 🧹
