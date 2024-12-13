@@ -4,6 +4,7 @@ import Foundation
 import UIKit
 import FirebaseCore
 import FirebaseMessaging
+import FirebaseCrashlytics
 import UserNotifications
 
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
@@ -14,6 +15,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
         FirebaseApp.configure()
+        
+        Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(true)
         
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current()

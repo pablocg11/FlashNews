@@ -11,6 +11,8 @@
 		D6428B672CDA9B9400DC1CD2 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D6428B662CDA9B9400DC1CD2 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D6428B692CDA9B9400DC1CD2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D6428B682CDA9B9400DC1CD2 /* FirebaseAuth */; };
 		D6428B6B2CDA9B9400DC1CD2 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D6428B6A2CDA9B9400DC1CD2 /* FirebaseMessaging */; };
+		D697F4CD2D0C4AC900E9F767 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D697F4CC2D0C4AC900E9F767 /* FirebaseCrashlytics */; };
+		D697F4CF2D0C4B3700E9F767 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D697F4CE2D0C4B3700E9F767 /* FirebaseCrashlytics */; };
 		D6BE95F22CE79533006E04D1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D6BE95F12CE79533006E04D1 /* Lottie */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +75,8 @@
 				D6BE95F22CE79533006E04D1 /* Lottie in Frameworks */,
 				D6428B6B2CDA9B9400DC1CD2 /* FirebaseMessaging in Frameworks */,
 				D6428B652CDA9B9400DC1CD2 /* FirebaseAnalytics in Frameworks */,
+				D697F4CF2D0C4B3700E9F767 /* FirebaseCrashlytics in Frameworks */,
+				D697F4CD2D0C4AC900E9F767 /* FirebaseCrashlytics in Frameworks */,
 				D6428B692CDA9B9400DC1CD2 /* FirebaseAuth in Frameworks */,
 				D6428B672CDA9B9400DC1CD2 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
@@ -116,7 +120,8 @@
 				D65577892CD1447E0058D2A8 /* Sources */,
 				D655778A2CD1447E0058D2A8 /* Frameworks */,
 				D655778B2CD1447E0058D2A8 /* Resources */,
-				D6BD034B2CE6C43100D9CE8B /* ShellScript */,
+				D6BD034B2CE6C43100D9CE8B /* SwiftLint */,
+				D697F4CB2D0C492B00E9F767 /* Firebase Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -132,6 +137,8 @@
 				D6428B682CDA9B9400DC1CD2 /* FirebaseAuth */,
 				D6428B6A2CDA9B9400DC1CD2 /* FirebaseMessaging */,
 				D6BE95F12CE79533006E04D1 /* Lottie */,
+				D697F4CC2D0C4AC900E9F767 /* FirebaseCrashlytics */,
+				D697F4CE2D0C4B3700E9F767 /* FirebaseCrashlytics */,
 			);
 			productName = FlashNews;
 			productReference = D655778D2CD1447E0058D2A8 /* FlashNews.app */;
@@ -221,7 +228,31 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		D6BD034B2CE6C43100D9CE8B /* ShellScript */ = {
+		D697F4CB2D0C492B00E9F767 /* Firebase Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"$(SRCROOT)/${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"$(SRCROOT)/${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(SRCROOT)/$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(SRCROOT)/$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+			);
+			name = "Firebase Crashlytics";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+		D6BD034B2CE6C43100D9CE8B /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -231,6 +262,7 @@
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -439,6 +471,7 @@
 				CODE_SIGN_ENTITLEMENTS = FlashNews/FlashNews.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"FlashNews/Preview Content\"";
 				DEVELOPMENT_TEAM = Y8HB8QQ3X5;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -481,6 +514,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = Y8HB8QQ3X5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlashNewsTests/Info.plist;
@@ -597,6 +631,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D6428B632CDA9B9400DC1CD2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		D697F4CC2D0C4AC900E9F767 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseCrashlytics;
+		};
+		D697F4CE2D0C4B3700E9F767 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseCrashlytics;
 		};
 		D6BE95F12CE79533006E04D1 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
