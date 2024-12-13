@@ -15,7 +15,7 @@ class APINewsDataSource: APINewsDataSourceProtocol {
     }
     
     func getNews(category: Categories) async -> Result<[ArticleDTO], HTTPClientError> {
-        guard let apiKey = ProcessInfo.processInfo.environment["NEWS_API_KEY"] else {
+        guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "NEWS_API_KEY") as? String else {
             fatalError("No se pudo cargar la configuración de la API.")
         }
         

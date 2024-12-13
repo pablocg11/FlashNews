@@ -117,5 +117,8 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+# Enviroment Configuration files
+*.xcconfig
+
 # End of https://www.toptal.com/developers/gitignore/api/swift,macos
 .bitrise.secrets.yml
