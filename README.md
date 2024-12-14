@@ -35,8 +35,8 @@ The app integrates with **NewsAPI** (which provides the latest headlines) and is
 ## Screenshots 📸
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/24e46684-ba55-407e-860e-be1c3cac09da" alt="Home Screen" width="300"/>
-  <img src="https://github.com/user-attachments/assets/f22b2479-6ee2-4c62-803f-4064f0bbcafb" alt="Detail Screen" width="300"/>
-  <img src="https://github.com/user-attachments/assets/dc1f250b-2323-4187-9ea9-9db9dbfff114" alt="Search Screen" width="300"/>
+  <img src="https://github.com/user-attachments/assets/24e46684-ba55-407e-860e-be1c3cac09da" alt="Home Screen" width="200"/>
+  <img src="https://github.com/user-attachments/assets/f22b2479-6ee2-4c62-803f-4064f0bbcafb" alt="Detail Screen" width="200"/>
+  <img src="https://github.com/user-attachments/assets/dc1f250b-2323-4187-9ea9-9db9dbfff114" alt="Search Screen" width="200"/>
 </p>
 
